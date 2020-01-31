@@ -1,1 +1,10 @@
-readme
+# Voice Prescription API
+
+This repository contains the API companion for the Voice Prescription App. The API uses Flask RESTful to integrate the Machine Learning model with the App. API also enables saving of doctor data to a MySQL database.
+
+# The Model
+
+This repository also contains the training and testing datasets for predicting diseases based on the symptoms. Also present are a list of Common Indian Names for tagging the names of patients, list of common medical terms for tagging keywords of symptoms, diagnosis and prescription using NLTK. 
+
+# The repository for the Voice Prescription App can be found at
+https://github.com/Saif807380/Voice-Prescription
