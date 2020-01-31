@@ -70,7 +70,21 @@ class UserRegister(Resource):
                         required=True,
                         help="This field cannot be left blank.")
 
-    parser.add_argument('doctor
+    parser.add_argument('doctor_designation',
+                        type=str,
+                        required=True,
+                        help="This field cannot be left blank.")
+
+    parser.add_argument('doctor_contact',
+                        type=int,
+                        required=True,
+                        help="This field cannot be left blank.")
+
+    parser.add_argument('hospital_name',
+                        type=str,
+                        required=True,
+                        help="This field cannot be left blank.")
+
     parser.add_argument('hospital_address',
                         type=str,
                         required=True,
@@ -84,6 +98,7 @@ class UserRegister(Resource):
     def post(self):
 
         request_data = UserRegister.parser.parse_args()
+        print(request_data.items())
 
         #request_data = request.get_json()
         if User.find_by_username(request_data["username"]):
@@ -141,7 +156,6 @@ class SetProfile(Resource):
                         required=True,
                         help="This field cannot be left blank.")
 
-    @jwt_required()
     def post(self):
         data= SetProfile.parser.parse_args()
      #  user = User.find_by_username(data['username'])
@@ -168,7 +182,7 @@ class GetProfile(Resource):
                         help="This field cannot be left blank.")
 
 
-    def get(self):
+    def post(self):
         data = GetProfile.parser.parse_args()
         save = User.find_by_username(data['username'])
 
